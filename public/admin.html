@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <!--Nav Menu START-->
+    <nav class="bg-white shadow-md fixed z-30 w-full">
+        <div class="px-3 py-3 lg:px-5 lg:py-5">
+            <div class="flex items-center justify-between">
+                <!--Logo-->
+                <div class="flex items-center justify-start">
+                    <a href="dashboard.html" class="">
+                        <img src="https://placehold.co/150x80?text=Logo" class="h-10">
+                    </a>
+                    
+                    <!--Mobile Menu-->
+                    <div class="lg:hidden flex z-50 justify-around items-start">
+                        <a href="#" class="relative text-center block text-second-900">
+                            <div class="ms-3" id="menuBar">
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <!--Mobile Menu END-->
+                </div>
+                
+                <!--Notification & Profile-->
+                <div class="flex items-center">
+
+                    <!--Notification Dropdown-->
+                    <div class="flex justify-end p-2">
+                        <button class="text-gray-700 me-4" id="header-search-button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <div id="search-box" 
+                        class="hidden absolute bg-white right-30 mt-14 p-5 w-64 border rounded-lg shadow-xl">
+                            <form action="#">
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 mt-2 ml-3 ">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                    <input type="text" placeholder="Search..." class="bg-gray-50 w-full border border-gray-300 sm:text-sm rounded-md
+                             block pl-10 p-2">
+                                </div>
+                            </form>
+                        </div>
+                        <button class="text-gray-700" id="user-menu-bell-button">
+                            <div class="">
+                                <i class="fa-solid fa-bell mr-2 ml-2"></i>
+                            </div>
+                        </button>
+                        <!--Dropdown Menu-->
+                        <div id="user-bell-menu"
+                            class="hidden absolute bg-white right-30 mt-14 w-64 border rounded-lg shadow-xl">
+                            <ul>
+                                <li class="text-gray-600 p-2 border-b hover:bg-gray-100"><a class="block" href="#">Lorem ipsum dolor sit amet</a></li>
+                                <li class="text-gray-600 p-2 border-b hover:bg-gray-100"><a class="block" href="#">Lorem ipsum dolor sit amet</a></li>
+                                <li class="text-gray-600 p-2 hover:bg-gray-100"><a class="block" href="#">Lorem ipsum dolor sit amet</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <!--Inbox Dropdown-->
+                    <div class="flex justify-end p-2">
+                        <button class="text-gray-700" id="user-menu-inbox-button">
+                            <div class="">
+                                <i class="fa-solid fa-comment mr-2 ml-2"></i>
+                            </div>
+                        </button>
+                        <!--Dropdown Menu-->
+                        <div id="user-inbox-menu"
+                            class="hidden absolute right-20 mt-14 w-64 bg-white border rounded-lg shadow-xl">
+                            <div class="p-4">
+                                <div class="flex items-center">
+                                    <div class="w-14 h-14 rounded-full mr-2">
+                                        <img src="https://placehold.co/60x60" class="rounded-full">
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold">Furkan Turgut</p>
+                                        <p class="text-xs text-gray-500">Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Soluta, quas.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 border-b">
+                                <div class="flex items-center">
+                                    <div class="w-14 h-14 rounded-full mr-2">
+                                        <img src="https://placehold.co/60x60" class="rounded-full">
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold">Furkan Turgut</p>
+                                        <p class="text-xs text-gray-500">Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Soluta, quas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--User Menu-->
+                        <div class="flex justify-end p-2">
+                            <button class="text-gray-700" id="user-menu-profile-button">
+                                <div class="border border-second-500 rounded-full w-6">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                            </button>
+                            <!--Dropdown Menu-->
+                            <div id="user-profile-menu"
+                                class="hidden absolute right-10 mt-14 w-64 bg-white border rounded-lg shadow-xl">
+                                <ul>
+                                    <li class="border-b hover:bg-gray-100"><a href="#"
+                                            class="block px-4 py-2 text-primary-700 ">Dashboard</a></li>
+                                    <li class="border-b hover:bg-gray-100"><a href="#"
+                                            class="block px-4 py-2 text-primary-700 ">Settings</a></li>
+                                    <li class="border-b hover:bg-gray-100 block px-4 py-2">Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--User Menu END-->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!--Nav Menu END-->
+    
+
+    <div class="fixed left-0 top-0 w-full h-full z-50 bg-gray-600 bg-opacity-30 shadow hidden" id="mobileMenu">
+        <div class="absolute left-0 top-0 w-72 h-full z-50 bg-gray-600 shadow-md">
+            <div class="text-gray-50 text-lg absolute right-3 top-3 cursor-pointer" id="closeMenu">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <div class="ml-2 mt-12">
+                <ul class="space-y-2 pb-2 mt-6">
+                    <li>
+                        <a href="dashboard.html"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900">
+                            <i class="fa-solid fa-gauge"></i><span class="ml-4">Dashboard</span></a>
+                    </li>
+                    <!--Pages Menu-->
+                    <li>
+                        <a href="javascript:void(0)"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900 toggle-menu">
+                            <i class="fa-solid fa-lock"></i><span class="ml-4">Authentication</span>
+                            <i class="fa-solid fa-chevron-down ml-auto"></i>
+                        </a>
+                        <ul class="ml-4 submenu hidden">
+                            <li>
+                                <a href="index.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Sign In</span></a>
+                                <a href="sign-up.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Sign Up</span></a>
+                                <a href="forgot-password.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Forgot Password</span></a>
+                                <a href="reset-password.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Reset Password</span></a>
+                                <a href="profile-lock.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Profile Lock</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--Pages Menu END-->
+                    <!--E-Commerce-->
+                    <li>
+                        <a href="javascript:void(0)"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900 toggle-menu">
+                            <i class="fa-solid fa-shop"></i><span class="ml-2">E-Commerce</span>
+                            <span class="fa-solid fa-caret-down ml-auto"></span>
+                        </a>
+                        <ul class="ml-4 submenu hidden">
+                            <li>
+                                <a href="product.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Product</span></a>
+                                <a href="billing.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Billing</span></a>
+                                <a href="invoice.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Invoice</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--E-Commerce END-->
+                    <!--Users-->
+                    <li>
+                        <a href="javascript:void(0)"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900 toggle-menu">
+                            <i class="fa-solid fa-users"></i><span class="ml-2">Users</span>
+                            <i class="fa-solid fa-caret-down ml-auto"></i>
+                        </a>
+                        <ul class="ml-4 submenu hidden">
+                            <li>
+                                <a href="user-list.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">User List</span></a>
+                                <a href="profile.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Profile</span></a>
+                                <a href="settings.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  ml-3 pt-2 hover:text-second-900 toggle-menu">
+                                    <span class="ml-3">Settings</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--E-Commerce END-->
+                    <li>
+                        <a href="404.html"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900">
+                            <i class="fa-solid fa-bomb"></i><span class="ml-4">404</span></a>
+                    </li>
+                    <li>
+                        <a href="500.html"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900">
+                            <i class="fa-solid fa-bug"></i><span class="ml-4">500</span></a>
+                    </li>
+                    <li>
+                        <a href="maintenance.html"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900">
+                            <i class="fa-solid fa-triangle-exclamation"></i></i><span
+                                class="ml-4">Maintenance</span></a>
+                    </li>
+                    <li>
+                        <a href="help.html"
+                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-1 py-2  hover:text-second-900">
+                            <i class="fa-solid fa-triangle-exclamation"></i><span class="ml-4">Help</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex">
+        <!-- Sidebar Menu-->
+        <aside class="fixed hidden z-20 h-full top-0 left-0 pt-24 lg:flex flex-shrink-0 flex-col w-72">
+            <div class="bg-gray-600 border-b relative flex-1 flex-col pt-0">
+                <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+                    <div class="flex-1 bg-gray-600 divide-y space-y-2">
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="dashboard.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2  hover:text-second-900">
+                                    <i class="fa-solid fa-gauge"></i><span class="ml-4">Dashboard</span></a>
+                            </li>
+                            <!--Pages Menu-->
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2  hover:text-second-900 toggle-menu">
+                                    <i class="fa-solid fa-lock"></i><span class="ml-4">Authentication</span>
+                                    <i class="fa-solid fa-chevron-down ml-auto"></i>
+                                </a>
+                                <ul class="submenu hidden">
+                                    <li>
+                                        <a href="index.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">Sign In</span></a>
+                                        <a href="sign-up.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">Sign Up</span></a>
+                                        <a href="forgot-password.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">Forgot Password</span></a>
+                                        <a href="reset-password.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">Reset Password</span></a>
+                                        <a href="profile-lock.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">Profile Lock</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Pages Menu END-->
+                            
+                            <!--Users-->
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2  hover:text-second-900 toggle-menu">
+                                    <i class="fa-solid fa-users"></i><span class="ml-2">Users</span>
+                                    <i class="fa-solid fa-chevron-down ml-auto"></i>
+                                </a>
+                                <ul class="submenu hidden">
+                                    <li>
+                                        <a href="user-list.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">User List</span></a>
+                                        <a href="profile.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">Profile</span></a>
+                                        <a href="settings.html"
+                                            class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2 pt-2 hover:text-second-900 toggle-menu">
+                                            <span class="pl-7">Settings</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--E-Commerce END-->
+                            <li>
+                                <a href="404.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2  hover:text-second-900">
+                                    <i class="fa-solid fa-bomb"></i><span class="ml-4">404</span></a>
+                            </li>
+                            <li>
+                                <a href="500.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2  hover:text-second-900">
+                                    <i class="fa-solid fa-bug"></i><span class="ml-4">500</span></a>
+                            </li>
+                            <li>
+                                <a href="maintenance.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2  hover:text-second-900">
+                                    <i class="fa-solid fa-triangle-exclamation"></i></i><span
+                                        class="ml-4">Maintenance</span></a>
+                            </li>
+                            <li>
+                                <a href="help.html"
+                                    class="text-white items-center flex roundend-lg text-base font-poppins hover:bg-primary-800 px-2 py-2  hover:text-second-900">
+                                    <i class="fa-solid fa-triangle-exclamation"></i><span class="ml-4">Help</span></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+        <!-- Sidebar Menu END-->
+
+        <main class="flex lg:ml-64 xl:ml-44 2xl:ml-64 mt-20 lg:mt-20 w-full p-6">
+            <div class="flex flex-col h-screen p-6 mt-1 lg:mt-0  w-full">
+                <!--Widget-->
+                <div class="container mx-auto p-0 ml-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Widget One</h2>
+                            </div>
+                            <div class="card-body">
+                                <p>5.500</p>
+                                <p class="text-green-600">%14.2</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="bg-primary">View All</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Widget Two</h2>
+                            </div>
+                            <div class="card-body">
+                                <p>5.500</p>
+                                <p class="text-green-600">%14.2</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="bg-primary">View All</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Widget Three</h2>
+                            </div>
+                            <div class="card-body">
+                                <p>5.500</p>
+                                <p class="text-green-600">%14.2</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="bg-primary">View All</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Widget END-->
+                <!--Users-->
+                <div class="container mx-auto my-8 p-0 ml-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Latest Users</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="mt-4 space-y-3">
+                                    <div class="flex items-center border-b mb-3 pb-3">
+                                        <img src="https://placehold.co/100x100?text=user" class="w-16 h-16 rounded-full">
+                                        <div class="ml-4">
+                                            <p class="text-lg font-semibold text-second-900 ">Furkan Turgut</p>
+                                            <p>furkan@turgut.com</p>
+                                            <p>+90 5XX XXX XXXX</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex items-center border-b mb-3 pb-3">
+                                        <img src="https://placehold.co/100x100?text=user" class="w-16 h-16 rounded-full">
+                                        <div class="ml-4">
+                                            <p class="text-lg font-semibold text-second-900 ">Furkan Turgut</p>
+                                            <p>furkan@turgut.com</p>
+                                            <p>+90 5XX XXX XXXX</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex items-center border-b mb-3 pb-3">
+                                        <img src="https://placehold.co/100x100?text=user" class="w-16 h-16 rounded-full">
+                                        <div class="ml-4">
+                                            <p class="text-lg font-semibold text-second-900 ">Furkan Turgut</p>
+                                            <p>furkan@turgut.com</p>
+                                            <p>+90 5XX XXX XXXX</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center border-b mb-3 pb-3">
+                                        <img src="https://placehold.co/100x100?text=user" class="w-16 h-16 rounded-full">
+                                        <div class="ml-4">
+                                            <p class="text-lg font-semibold text-second-900 ">Furkan Turgut</p>
+                                            <p>furkan@turgut.com</p>
+                                            <p>+90 5XX XXX XXXX</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="text-xl font-semibold my-4">Sales Last Week</h2>
+                                <canvas id="myChart" class="w-full"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Users END-->
+
+                <!--Footer-->
+                <div class="container bg-gray-600 w-full mt-5 ml-2 mx-auto">
+                    <div class="lg:flex lg:justify-center text-center py-5">
+                        <ul class="lg:flex lg:space-x-4">
+                            <li><a href="#" class="text-white hover:text-second-900">Terms and Conditions</a></li>
+                            <li><a href="#" class="text-white hover:text-second-900">Licences</a></li>
+                            <li><a href="#" class="text-white hover:text-second-900">Private Policy</a></li>
+                            <li><a href="#" class="text-white hover:text-second-900">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Footer END-->
+
+            </div>
+            
+        </main>   
+        
+        
+    </div>
+    
+
+    <script src="./js/script.js"></script>
+    <script src="./js/chart.js"></script>
+</body>
+
+</html>
